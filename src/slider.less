@@ -1,0 +1,160 @@
+@import "color";
+@import "fonts";
+@import "animation";
+
+.slider {
+  padding: 0 78px;
+  position: relative;
+}
+
+.slider-text {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: @buildings-background-description;
+  padding: 15px 56px;
+  box-sizing: border-box;
+  height: 78px;
+  width: 100%;
+  transform: translateX(-900px);
+  transition: 1.3s transform 0.3s ease;
+
+  .slider-text-block {
+    color: @buildings-text;
+    height: 100%;
+    display: grid;
+    align-content: space-between;
+
+    .slider-title {
+      font-family: MuseoSansCyrl500, sans-serif;
+      font-size: 18px;
+    }
+
+    .slider-description {
+      font-family: MuseoSansCyrl300, sans-serif;
+      font-size: 16px;
+    }
+  }
+
+  .slider-linear {
+    width: 1px;
+    height: 45px;
+    background-color: @buildings-text;
+
+    & ~ .slider-text-block {
+      .slider-title {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.slick-track {
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: unset;
+
+  .slick-slide {
+    margin-right: -100px;
+
+    .slider-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        transform: scale(0.8);
+      }
+    }
+  }
+
+  .slick-active {
+    position: relative;
+    z-index: 100;
+  }
+
+  .slick-center {
+    position: relative;
+    z-index: 101;
+    overflow: hidden;
+
+    .slider-content {
+      img {
+        transition: 1.3s transform .2s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        transform: scale(1);
+      }
+
+      .slider-text {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.slick-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid @buildings-arrow;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1020;
+  transition: transform 1s;
+  top: calc(50% - 25px);
+}
+
+.slick-next {
+  right: 10px;
+
+  &:hover {
+    transform: translateX(10px);
+  }
+}
+
+.slick-prev {
+  left: 10px;
+
+  &:hover {
+    transform: translateX(-10px);
+  }
+}
+
+.slick-dots {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+
+  li {
+    list-style: none;
+    border: 1px solid @buildings-arrow;
+    border-radius: 50%;
+    background-color: transparent;
+    width: 10px;
+    height: 10px;
+    margin: 0 7.5px;
+  }
+
+  li.slick-active {
+    background-color: @buildings-arrow;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+  }
+}
+
+
