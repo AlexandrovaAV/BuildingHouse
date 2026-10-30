@@ -27,12 +27,13 @@ $(document).ready(function () {
         popupInfo.css({
             'transform': 'scale(0)',
         });
-        setTimeout(function() {
+        setTimeout(function () {
             popupTour.css({
                 'transform': 'scale(0)',
             });
         }, 700);
     }
+
     popupTour.click((e) => {
         closePopup();
     });
@@ -435,22 +436,27 @@ $(document).ready(function () {
     //adaptive block technologies
     let points = $('.points');
     let technoDesc = $('.technologies-description');
+    if ($(window).width() <= 1024) {
+        for (let i = 0; i <= points.length; i++) {
+            $(`#point${i}`).on('click', function () {
 
-    for (let i = 0; i <= points.length; i++) {
-        $(`#point${i}`).on('click', function () {
-            let findClasses = $(`.points .point`);
-            if (findClasses.hasClass('after-class') === true) {
-                findClasses.removeClass('after-class');
-                $(`.points`).css('border-color', '#ecc66b');
-            }
-            $(`#point${i}`).css('border-color', '#fcedcb');
-            $(`#point${i} .point`).addClass('after-class');
-            for (let j = 0; j <= technoDesc.length; j++) {
-                $(`#desc${j}`).css('display', 'none');
-            }
-            $(`#desc${i}`).css('display', 'inline-block');
-        });
+                let findClasses = $(`.points .point`);
+                if (findClasses.hasClass('after-class') === true) {
+                    findClasses.removeClass('after-class');
+                    $(`.points`).css('border-color', '#ecc66b');
+                }
+                $(`#point${i}`).css('border-color', '#fcedcb');
+                $(`#point${i} .point`).addClass('after-class');
+                for (let j = 0; j <= technoDesc.length; j++) {
+                    $(`#desc${j}`).css('display', 'none');
+                }
+                $(`#desc${i}`).css('display', 'inline-block');
+            });
+        }
+    } else {
+        for (let j = 0; j <= technoDesc.length; j++) {
+            $(`#desc${j}`).css('display', 'inline-block');
+        }
     }
-
 
 });
