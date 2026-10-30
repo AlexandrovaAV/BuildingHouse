@@ -17,8 +17,8 @@ $(document).ready(function () {
         variableWidth: true,
         adaptiveHeight: false,
         centerPadding: '0',
-        prevArrow: '<button class="slick-prev" aria-label="Previous" type="button"><img src="../assets/images/arrow_prev.png"></button>',
-        nextArrow: '<button class="slick-next" aria-label="Next" type="button"><img src="../assets/images/arrow_next.png"></button>',
+        prevArrow: '<button class="slick-prev" aria-label="Previous" type="button"><img src="./assets/images/arrow_prev.png"></button>',
+        nextArrow: '<button class="slick-next" aria-label="Next" type="button"><img src="./assets/images/arrow_next.png"></button>',
         customPaging: function (slider, i) {
             return $('<button type="button" />').text('');
         },
